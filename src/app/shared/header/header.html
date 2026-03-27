@@ -1,0 +1,41 @@
+  <!-- HEADER -->
+    <header class="header">
+      <div class="container header__container">
+        <a routerLink="index.html" class="header__logo" aria-label="Urban Threads Home">
+          URBAN THREADS
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a routerLink="index" class="nav__link nav__link--active">Home</a></li>
+            <li><a routerLink="shop" class="nav__link">Shop</a></li>
+            <li><a routerLink="about" class="nav__link">About</a></li>
+            <li><a routerLink="testimonials" class="nav__link">Reviews</a></li>
+            <li><a routerLink="faq" class="nav__link">FAQ</a></li>
+            <li><a routerLink="contact" class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header__actions">
+          @if(!userData) {
+            <a routerLink="/auth">Login/Register</a>
+          }
+          @else {
+            <span>Welcome {{userData.name}}</span>
+          }
+          <button class="header__icon-btn" onclick="openReviewModal()" aria-label="Write a review">
+            <span>★</span>
+          </button>
+          
+          <button class="header__icon-btn" (click)="openCartDrawer()" aria-label="Shopping cart">
+            <span>🛒</span>
+            <span class="header__badge" id="cart-count">2</span>
+          </button>
+          @if (userData) {
+          <a routerLink="account" class="header__icon-btn" aria-label="My account">
+            <span>👤</span>
+          </a>
+        }
+        </div>
+      </div>
+    </header>

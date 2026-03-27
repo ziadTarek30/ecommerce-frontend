@@ -1,0 +1,165 @@
+<!-- CONTACT PAGE -->
+  <div class="contact">
+    <div class="container">
+      <header class="section__header" style="margin-bottom: var(--spacing-4xl);">
+        <h1 class="section__title">GET IN TOUCH</h1>
+        <p class="section__subtitle">
+          Have questions? We're here to help. Reach out and we'll get back to you within 24 hours.
+        </p>
+      </header>
+
+      <div class="contact__container">
+        <!-- Contact Information -->
+        <div class="contact__info">
+          <div class="contact__card">
+            <div class="contact__card-icon">📧</div>
+            <div>
+              <h3 class="contact__card-title">Email Us</h3>
+              <p class="contact__card-content">
+                support@urbanthreads.com<br>
+                We respond within 24 hours
+              </p>
+            </div>
+          </div>
+
+          <div class="contact__card">
+            <div class="contact__card-icon">📞</div>
+            <div>
+              <h3 class="contact__card-title">Call Us</h3>
+              <p class="contact__card-content">
+                +1 (555) 123-4567<br>
+                Mon-Fri, 9AM-6PM EST
+              </p>
+            </div>
+          </div>
+
+          <div class="contact__card">
+            <div class="contact__card-icon">💬</div>
+            <div>
+              <h3 class="contact__card-title">Live Chat</h3>
+              <p class="contact__card-content">
+                Chat with our team<br>
+                Available 24/7
+              </p>
+            </div>
+          </div>
+
+          <div class="contact__card">
+            <div class="contact__card-icon">📍</div>
+            <div>
+              <h3 class="contact__card-title">Visit Us</h3>
+              <p class="contact__card-content">
+                123 Fashion Avenue<br>
+                New York, NY 10001
+              </p>
+            </div>
+          </div>
+
+          <div class="contact__card">
+            <div class="contact__card-icon">🌐</div>
+            <div>
+              <h3 class="contact__card-title">Follow Us</h3>
+              <p class="contact__card-content">
+                @urbanthreads on all platforms<br>
+                Join our community
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact__form">
+          <h2 style="margin-bottom: var(--spacing-lg);">Send us a Message</h2>
+          
+          <form class="form" onsubmit="handleSubmit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+              <div class="form__group">
+                <label for="contact-first-name" class="form__label">First Name *</label>
+                <input 
+                  type="text" 
+                  id="contact-first-name" 
+                  class="form__input" 
+                  placeholder="John"
+                  required
+                >
+              </div>
+
+              <div class="form__group">
+                <label for="contact-last-name" class="form__label">Last Name *</label>
+                <input 
+                  type="text" 
+                  id="contact-last-name" 
+                  class="form__input" 
+                  placeholder="Doe"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="contact-email" class="form__label">Email Address *</label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                class="form__input" 
+                placeholder="your.email@example.com"
+                required
+              >
+            </div>
+
+            <div class="form__group">
+              <label for="contact-phone" class="form__label">Phone Number</label>
+              <input 
+                type="tel" 
+                id="contact-phone" 
+                class="form__input" 
+                placeholder="+1 (555) 123-4567"
+              >
+            </div>
+
+            <div class="form__group">
+              <label for="contact-subject" class="form__label">Subject *</label>
+              <select id="contact-subject" class="form__select" required>
+                <option value="">Select a topic</option>
+                <option value="order">Order Inquiry</option>
+                <option value="product">Product Question</option>
+                <option value="shipping">Shipping & Delivery</option>
+                <option value="return">Returns & Exchanges</option>
+                <option value="feedback">Feedback</option>
+                <option value="partnership">Partnership Opportunity</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label for="contact-order" class="form__label">Order Number (if applicable)</label>
+              <input 
+                type="text" 
+                id="contact-order" 
+                class="form__input" 
+                placeholder="UT-2024-0001"
+              >
+            </div>
+
+            <div class="form__group">
+              <label for="contact-message" class="form__label">Message *</label>
+              <textarea 
+                id="contact-message" 
+                class="form__textarea" 
+                placeholder="Tell us how we can help you..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width: 100%;">
+              Send Message
+            </button>
+
+            <p class="text-secondary text-center" style="font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+              We'll respond to your message within 24 hours during business days.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

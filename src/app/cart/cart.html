@@ -1,0 +1,57 @@
+ <!-- SHOPPING CART DRAWER -->
+  <div id="cart-drawer" class="drawer" [class.drawer--active]="openCart">
+    <header class="drawer__header">
+      <h2 class="drawer__title">Shopping Cart</h2>
+      <button class="modal__close" (click)="closeDrawer()" aria-label="Close cart">
+        ✕
+      </button>
+    </header>
+    <div class="drawer__body">
+      <div id="cart-items">
+        <!-- Sample cart items -->
+         @for(item of cartItems; track item) {
+           <app-cart-items [cartItem]="item" (totalChange)="totalChange($event)"></app-cart-items>
+
+         }
+
+        <!-- <article class="cart-item">
+          <div class="cart-item__image">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&h=80&fit=crop" alt="Retro Wave Sneakers">
+          </div>
+          <div class="cart-item__details">
+            <h3 class="cart-item__name">Retro Wave Sneakers</h3>
+            <p class="cart-item__meta">White / 42</p>
+            <p class="cart-item__price">$129.99</p>
+          </div>
+          <div class="cart-item__actions">
+            <div class="cart-item__quantity">
+              <button class="cart-item__quantity-btn" aria-label="Decrease quantity">-</button>
+              <span class="cart-item__quantity-value">1</span>
+              <button class="cart-item__quantity-btn" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="cart-item__remove">Remove</button>
+          </div>
+        </article> -->
+      </div>
+    </div>
+    <footer class="drawer__footer">
+      <div class="cart-summary">
+        <!-- <div class="cart-summary__row"> -->
+          <!-- <span class="cart-summary__label">Subtotal</span>
+          <span class="cart-summary__value">$219.98</span>
+        </div>
+        <div class="cart-summary__row">
+          <span class="cart-summary__label">Shipping</span>
+          <span class="cart-summary__value">Free</span>
+        </div> -->
+        <div class="cart-summary__row">
+          <span class="cart-summary__label">Total</span>
+          <span class="cart-summary__value cart-summary__value--total">${{total | number: '1.2-2'}}</span>
+        </div>
+      </div>
+      <a routerLink="checkout" (click)="closeDrawer(); storeCart()" class="btn btn--primary" style="width: 100%; margin-top: var(--spacing-lg);">
+        Proceed to Checkout
+      </a>
+    </footer>
+  </div>
+  <div class="drawer__overlay" (click)="closeDrawer()"></div>

@@ -1,0 +1,131 @@
+<!-- CHECKOUT -->
+<form [formGroup]="form" (ngSubmit)="placeOrder()" class="form" id="shipping-form">
+  <div class="checkout">
+    <div class="container">
+      <div class="checkout__main">
+        <!-- Shipping Information -->
+        <section class="checkout__section">
+          <header class="checkout__section-header">
+            <h2 class="checkout__section-title">Shipping Information</h2>
+            <span class="checkout__section-number">1</span>
+          </header>
+          
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+              <div class="form__group">
+                <label for="first-name" class="form__label">Name *</label>
+                <input 
+                  type="text"
+                  class="form__input" 
+                  placeholder="John Doe"
+                  formControlName="name"
+                >
+              </div>
+              
+    
+            </div>
+            
+            <div class="form__group">
+              <label for="email" class="form__label">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                class="form__input" 
+                placeholder="john.doe@example.com"
+                required
+                  formControlName="email"
+              >
+            </div>
+            
+            <div class="form__group">
+              <label for="phone" class="form__label">Phone Number *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                class="form__input" 
+                placeholder="+1 (555) 123-4567"
+                required
+                  formControlName="phone"
+              >
+            </div>
+            
+            <div class="form__group">
+              <label for="address" class="form__label">Street Address *</label>
+              <input 
+                type="text" 
+                id="address" 
+                class="form__input" 
+                placeholder="123 Main Street"
+                required
+                  formControlName="address"
+
+              >
+            </div>
+       
+          
+        </section>
+
+       
+      </div>
+
+      <!-- Order Summary Sidebar -->
+      <aside class="checkout__summary checkout__section">
+        <h3 class="checkout__summary-title">Order Summary</h3>
+        
+        <div class="checkout__items">
+          @for(item of cartItems; track item) {
+            <article class="checkout__item">
+              <div class="checkout__item-image">
+                <img [src]="item.imageUrl">
+              </div>
+              <div class="checkout__item-details">
+                <div class="checkout__item-name">{{item.name}}</div>
+                <div class="checkout__item-meta">Qty: {{item.amount}}</div>
+              </div>
+              <div class="checkout__item-price">${{item.price}}</div>
+            </article>
+
+          }
+          
+          
+        </div>
+        
+        <!-- <div class="cart-summary">
+          <div class="cart-summary__row">
+            <span class="cart-summary__label">Total</span>
+            <span class="cart-summary__value cart-summary__value--total">$238.68</span>
+          </div>
+        </div> -->
+        
+        <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: var(--spacing-lg);">
+          Place Order
+        </button>
+        
+        <p class="text-secondary text-center" style="font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+          By placing your order, you agree to our Terms of Service and Privacy Policy.
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION MODAL -->
+  <div id="order-confirmation-modal" class="modal">
+    <div class="modal__content" style="max-width: 500px; text-align: center;">
+      <div class="modal__body">
+        <div style="width: 100px; height: 100px; margin: 0 auto var(--spacing-lg); background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+          ✓
+        </div>
+        <h2 class="modal__title" style="margin-bottom: var(--spacing-md);">Order Placed Successfully!</h2>
+        <p class="text-secondary" style="margin-bottom: var(--spacing-lg);">
+          Thank you for your purchase! Your order #UT-2024-0001 has been confirmed and will be shipped soon.
+        </p>
+        <p class="text-secondary" style="font-size: var(--font-size-sm); margin-bottom: var(--spacing-xl);">
+          We've sent a confirmation email to your email address with order details and tracking information.
+        </p>
+        <div style="display: flex; gap: var(--spacing-md); justify-content: center;">
+          <a href="account.html" class="btn btn--primary">View Order</a>
+          <a href="index.html" class="btn btn--outline">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

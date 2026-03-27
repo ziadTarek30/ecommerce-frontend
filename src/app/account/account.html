@@ -1,0 +1,256 @@
+<!-- ACCOUNT PAGE -->
+  <div class="account">
+    <div class="container account__container">
+      <!-- Sidebar Navigation -->
+      <aside class="account__sidebar">
+        <nav class="account__nav">
+          <a href="#orders" class="account__nav-item account__nav-item--active" onclick="showSection('orders', event)">
+            <span>📦</span>
+            My Orders
+          </a>
+          <a href="#profile" class="account__nav-item" onclick="showSection('profile', event)">
+            <span>👤</span>
+            Profile
+          </a>
+          <a href="#addresses" class="account__nav-item" onclick="showSection('addresses', event)">
+            <span>📍</span>
+            Addresses
+          </a>
+          <a href="#settings" class="account__nav-item" onclick="showSection('settings', event)">
+            <span>⚙️</span>
+            Settings
+          </a>
+          <a href="auth.html" class="account__nav-item" style="color: var(--color-error);">
+            <span>🚪</span>
+            Logout
+          </a>
+        </nav>
+      </aside>
+      <!-- Main Content -->
+      <main class="account__content">
+        <!-- Orders Section -->
+        <section id="section-orders" class="account__section">
+          <header class="account__header">
+            <h1 class="account__title">My Orders</h1>
+            <p class="account__subtitle">Track and manage your purchases</p>
+          </header>
+
+          <div class="order-list">
+            <!-- Pending Order (Editable) -->
+            
+            <!-- {{orders[0].cartItems[0]}} -->
+            <!-- Shipped Order -->
+             @for (order of orders; track order) {
+                 <article class="order-card">
+                   <header class="order-card__header">
+                     <div>
+                       <div class="order-card__number">Order #UT-2024-0002</div>
+                       <div class="order-card__date">Placed on {{order.orderedAt}}</div>
+                     </div>
+                     <span class="order-card__status order-card__status--shipped">Shipped</span>
+                   </header>
+                   <div class="order-card__items">
+                   @for(item of order?.cartItems; track item) {
+                       <article class="checkout__item">
+                         <div class="checkout__item-image">
+                           <img [src]="item.imageUrl">
+                         </div>
+                         <div class="checkout__item-details">
+                           <div class="checkout__item-name">{{item.name}}</div>
+                           <div class="checkout__item-meta">Qty: {{item.amount}}</div>
+                         </div>
+                         <div class="checkout__item-price">${{item.price}}</div>
+                       </article>
+
+                   }
+                   </div>
+                   
+                   <footer class="order-card__footer">
+                     <div class="order-card__total">
+                       <span class="order-card__total-label">Total:</span>
+                       <span class="order-card__total-value">$89.99</span>
+                     </div>
+                     <div class="order-card__actions">
+                       <button class="btn btn--outline btn--small">Track Package</button>
+                     </div>
+                   </footer>
+                 </article>
+
+             }
+
+            
+            
+          </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="section-profile" class="account__section" style="display: none;">
+          <header class="account__header">
+            <h1 class="account__title">My Profile</h1>
+            <p class="account__subtitle">Manage your personal information</p>
+          </header>
+
+          <form class="form">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+              <div class="form__group">
+                <label for="profile-first-name" class="form__label">First Name</label>
+                <input type="text" id="profile-first-name" class="form__input" value="John">
+              </div>
+              
+              <div class="form__group">
+                <label for="profile-last-name" class="form__label">Last Name</label>
+                <input type="text" id="profile-last-name" class="form__input" value="Doe">
+              </div>
+            </div>
+            
+            <div class="form__group">
+              <label for="profile-email" class="form__label">Email Address</label>
+              <input type="email" id="profile-email" class="form__input" value="john.doe@example.com">
+            </div>
+            
+            <div class="form__group">
+              <label for="profile-phone" class="form__label">Phone Number</label>
+              <input type="tel" id="profile-phone" class="form__input" value="+1 (555) 123-4567">
+            </div>
+            
+            <div class="form__group">
+              <label for="profile-dob" class="form__label">Date of Birth</label>
+              <input type="date" id="profile-dob" class="form__input" value="1995-06-15">
+            </div>
+            
+            <button type="button" class="btn btn--primary" onclick="saveProfile()">Save Changes</button>
+          </form>
+        </section>
+
+        <!-- Addresses Section -->
+        <section id="section-addresses" class="account__section" style="display: none;">
+          <header class="account__header">
+            <h1 class="account__title">My Addresses</h1>
+            <p class="account__subtitle">Manage your shipping addresses</p>
+          </header>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--spacing-lg);">
+            <div class="checkout__section" style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <h3 style="font-weight: 700;">Home</h3>
+                <span style="padding: var(--spacing-xs) var(--spacing-sm); background: rgba(0, 240, 255, 0.2); color: var(--color-accent-cyan); border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 700;">DEFAULT</span>
+              </div>
+              <p class="text-secondary" style="line-height: 1.6; margin-bottom: var(--spacing-md);">
+                John Doe<br>
+                123 Main Street, Apt 4B<br>
+                New York, NY 10001<br>
+                United States
+              </p>
+              <div style="display: flex; gap: var(--spacing-sm);">
+                <button class="btn btn--ghost btn--small">Edit</button>
+                <button class="btn btn--ghost btn--small" style="color: var(--color-error);">Delete</button>
+              </div>
+            </div>
+
+            <div class="checkout__section" style="padding: var(--spacing-lg);">
+              <h3 style="font-weight: 700; margin-bottom: var(--spacing-md);">Work</h3>
+              <p class="text-secondary" style="line-height: 1.6; margin-bottom: var(--spacing-md);">
+                John Doe<br>
+                456 Business Ave, Suite 200<br>
+                New York, NY 10002<br>
+                United States
+              </p>
+              <div style="display: flex; gap: var(--spacing-sm);">
+                <button class="btn btn--ghost btn--small">Edit</button>
+                <button class="btn btn--ghost btn--small" style="color: var(--color-error);">Delete</button>
+              </div>
+            </div>
+
+            <button class="checkout__section" style="padding: var(--spacing-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; border-style: dashed; cursor: pointer;">
+              <span style="font-size: 2rem; margin-bottom: var(--spacing-sm);">+</span>
+              <span style="font-weight: 600;">Add New Address</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="section-settings" class="account__section" style="display: none;">
+          <header class="account__header">
+            <h1 class="account__title">Settings</h1>
+            <p class="account__subtitle">Manage your account preferences</p>
+          </header>
+
+          <form class="form">
+            <div class="form__group">
+              <label class="form__label">Email Notifications</label>
+              <div class="form__checkbox">
+                <input type="checkbox" id="notif-orders" checked>
+                <label for="notif-orders">Order updates and shipping notifications</label>
+              </div>
+              <div class="form__checkbox">
+                <input type="checkbox" id="notif-promotions" checked>
+                <label for="notif-promotions">Promotions and special offers</label>
+              </div>
+              <div class="form__checkbox">
+                <input type="checkbox" id="notif-newsletter">
+                <label for="notif-newsletter">Weekly newsletter</label>
+              </div>
+            </div>
+            
+            <div class="form__group">
+              <label class="form__label">Privacy Settings</label>
+              <div class="form__checkbox">
+                <input type="checkbox" id="privacy-profile" checked>
+                <label for="privacy-profile">Make my profile public</label>
+              </div>
+              <div class="form__checkbox">
+                <input type="checkbox" id="privacy-reviews" checked>
+                <label for="privacy-reviews">Show my name on reviews</label>
+              </div>
+            </div>
+            
+            <div class="form__group">
+              <label for="language" class="form__label">Language</label>
+              <select id="language" class="form__select">
+                <option value="en" selected>English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+              </select>
+            </div>
+            
+            <button type="button" class="btn btn--primary" onclick="saveSettings()">Save Settings</button>
+            
+            <hr style="margin: var(--spacing-2xl) 0; border: none; border-top: 1px solid var(--color-border);">
+            
+            <h3 style="margin-bottom: var(--spacing-lg);">Danger Zone</h3>
+            <button type="button" class="btn btn--outline" style="border-color: var(--color-error); color: var(--color-error);">Delete Account</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- EDIT ORDER MODAL -->
+  <div id="edit-order-modal" class="modal">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h2 class="modal__title">Edit Order #<span id="modal-order-number"></span></h2>
+        <button class="modal__close" onclick="closeEditOrderModal()">✕</button>
+      </header>
+      <div class="modal__body">
+        <p class="text-secondary" style="margin-bottom: var(--spacing-lg);">
+          You can edit item quantities or remove items from your pending order. Changes will update your order total.
+        </p>
+        
+        <div id="edit-order-items" style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+          <!-- Items will be inserted here -->
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-summary__row">
+            <span class="cart-summary__label">New Total</span>
+            <span class="cart-summary__value cart-summary__value--total" id="edit-order-total">$159.97</span>
+          </div>
+        </div>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn btn--secondary" onclick="closeEditOrderModal()">Cancel</button>
+        <button class="btn btn--primary" onclick="saveOrderChanges()">Save Changes</button>
+      </footer>
+    </div>
+  </div>

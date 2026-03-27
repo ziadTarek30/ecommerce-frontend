@@ -1,0 +1,95 @@
+
+
+
+  <!-- MAIN CONTENT -->
+  <main style="padding-top: calc(var(--header-height) + var(--spacing-2xl));">
+    <div class="container">
+      <header class="section__header" style="margin-bottom: var(--spacing-xl);">
+        <h1 class="section__title">SHOP ALL PRODUCTS</h1>
+        <p class="section__subtitle">Discover your next favorite piece</p>
+      </header>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <form [formGroup]="form" (ngSubmit)="filter()" class="filter-bar__form" id="filter-form">
+          <div class="form__group" style="margin: 0;">
+            <label for="filter-gender" class="form__label">Gender</label>
+            <select id="filter-gender" class="form__select" formControlName="gender">
+              <option value="">All</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+            </select>
+          </div>
+          
+          <div class="form__group" style="margin: 0;">
+            <label for="filter-category" class="form__label">Category</label>
+            <select id="filter-category" class="form__select" formControlName="category">
+              <option value="">All Categories</option>
+              <option value="tshirts">T-Shirts</option>
+              <option value="shoes">Shoes</option>
+              <option value="pants">Pants</option>
+              <option value="jackets">Jackets</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+          
+          <div class="form__group" style="margin: 0;">
+            <label for="filter-sort" class="form__label">Sort By</label>
+            <select id="filter-sort" class="form__select" formControlName="sortBy">
+              <option value="asc">Price: Low to High</option>
+              <option value="desc">Price: High to Low</option>
+            </select>
+          </div>
+          
+          <div class="form__group" style="margin: 0;">
+            <label for="filter-price" class="form__label">Max Price</label>
+            <select id="filter-price" class="form__select" formControlName="maxPrice">
+              <option value="">All Prices</option>
+              <option value="50">Under $50</option>
+              <option value="100">Under $100</option>
+              <option value="150">Under $150</option>
+              <option value="200">Under $200</option>
+            </select>
+          </div>
+          
+          <div class="filter-bar__actions">
+            <button type="submit" class="btn btn--primary">Apply</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- RESULTS INFO -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl);">
+        <p class="text-secondary" id="results-count">Showing 24 products</p>
+      </div>
+
+      <!-- PRODUCT GRID -->
+      <div class="product-grid" id="product-grid">
+        <!-- Men's T-Shirts -->
+         @for(product of products | async; track product) {
+        
+        <app-product [product]="product"></app-product>
+
+      }
+        
+
+        <!-- <article class="product-card" data-gender="all" data-category="accessories" data-price="19.99" onclick="openProductModal('accessory-6')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=400&h=533&fit=crop" alt="Leather Belt">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Accessories</p>
+            <h3 class="product-card__title">Classic Leather Belt</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$19.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('accessory-6')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();">♡</button>
+            </div>
+          </div>
+        </article> -->
+      </div>
+    </div>
+  </main>

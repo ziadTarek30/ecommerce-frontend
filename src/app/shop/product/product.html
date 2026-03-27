@@ -1,0 +1,114 @@
+        <article class="product-card" data-gender="men" data-category="tshirts" data-price="39.99" (click)="openProductModal()">
+          <div class="product-card__image">
+            <img [src]="product.imageUrl">
+            <span class="product-card__badge product-card__badge--new">NEW</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">{{product.category}}'s {{product.subCategory}}</p>
+            <h3 class="product-card__title">{{product.name}}</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">${{product.price}}</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            @if(product.quantity <= 5) {
+              @if(product.quantity === 0) {
+                <p class="product-card__stock product-card__stock--out">out of stock</p>
+              }
+              @else {
+                <p class="product-card__stock product-card__stock--low">Only {{product.quantity}} left in stock</p>
+              }
+
+            }
+          
+            <div class="product-card__actions">
+              @if(product.quantity === 0) {
+                <button class="btn btn--secondary btn--small" disabled>OUT OF STOCK</button>
+              }
+              @else {
+                <button class="btn btn--primary btn--small" (click)="addItemToCart(product); $event.stopPropagation()">Add to Cart</button>
+
+              }
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();">♡</button>
+            </div>
+          </div>
+        </article>
+
+
+
+         <!-- PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="modal" [class.modal--active]="openModal">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h2 class="modal__title">Product Details</h2>
+        <button class="modal__close" (click)="closeProductModal()" aria-label="Close modal">
+          ✕
+        </button>
+      </header>
+      <div class="modal__body">
+        <div class="product-detail" id="product-detail-content">
+          <div class="product-detail__gallery">
+          <div class="product-detail__main-image">
+            <img [src]="product.imageUrl">
+          </div>
+          <!-- <div class="product-detail__thumbnails">
+            ${product.images.map(img => `
+              <div class="product-detail__thumbnail">
+                <img src="${img}" alt="${product.name}">
+              </div>
+            `).join('')}
+          </div> -->
+        </div>
+        
+        <div class="product-detail__info">
+          <p class="product-detail__category">{{product.subCategory}}</p>
+          <h3 class="product-detail__title">{{product.name}}</h3>
+          
+          <div class="product-detail__price">
+            <span class="product-detail__price-current">{{product.price}}</span>
+            <!-- ${product.originalPrice ? `<span class="product-detail__price-original">$${product.originalPrice}</span>` : ''} -->
+          </div>
+          
+          <!-- ${stockText ? `<p class="product-card__stock ${stockClass}">${stockText}</p>` : ''} -->
+          
+          <p class="product-detail__description">{{product.description}}</p>
+          
+          <!-- <div class="product-detail__options">
+            <div>
+              <p class="product-detail__option-label">Size</p>
+              <div class="product-detail__sizes">
+                ${product.sizes.map(size => `
+                  <div class="product-detail__size">${size}</div>
+                `).join('')}
+              </div>
+            </div>
+            
+            <div>
+              <p class="product-detail__option-label">Color</p>
+              <div class="product-detail__colors">
+                ${product.colors.map(color => `
+                  <div class="product-detail__color" title="${color}">${color}</div>
+                `).join('')}
+              </div>
+            </div>
+          </div> -->
+          
+          <div class="product-detail__quantity">
+            <p class="product-detail__option-label">Quantity</p>
+            <div class="product-detail__quantity-control">
+              <button class="product-detail__quantity-btn">-</button>
+              <span class="product-detail__quantity-value">1</span>
+              <button class="product-detail__quantity-btn">+</button>
+            </div>
+          </div>
+          
+          <!-- <div class="product-detail__actions">
+            <button class="btn btn--primary btn--large" onclick="addToCart('${productId}'); closeProductModal();" ${product.stock === 0 ? 'disabled' : ''}>
+              ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+            </button>
+            <button class="btn btn--outline btn--icon btn--large" aria-label="Add to wishlist">♡</button> -->
+          <!-- </div> -->
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,237 @@
+<!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero__container">
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span>✨</span>
+          New Season Collection
+        </span>
+        <h1 class="hero__title">DEFINE YOUR STYLE</h1>
+        <p class="hero__subtitle">
+          Discover bold streetwear that speaks your language. Curated collections for the fearless, 
+          the creative, and the unapologetically authentic.
+        </p>
+        <div class="hero__actions">
+          <a href="products.html" class="btn btn--primary btn--large">Explore Collection</a>
+          <button class="btn btn--outline btn--large" onclick="scrollToSection('new-arrivals')">New Arrivals</button>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop" alt="Featured fashion model wearing Urban Threads streetwear">
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="section section--dark" id="new-arrivals">
+    <div class="container">
+      <header class="section__header">
+        <h2 class="section__title">NEW ARRIVALS</h2>
+        <p class="section__subtitle">Fresh drops, hot styles. Get them before they're gone.</p>
+      </header>
+      
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <article class="product-card" onclick="openProductModal('urban-hoodie')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=533&fit=crop" alt="Black Urban Hoodie">
+            <span class="product-card__badge product-card__badge--new">NEW</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Jackets</p>
+            <h3 class="product-card__title">Urban Tech Hoodie</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$89.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--low">Only 3 left in stock</p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('urban-hoodie')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="product-card" onclick="openProductModal('cargo-pants')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&h=533&fit=crop" alt="Tactical Cargo Pants">
+            <span class="product-card__badge product-card__badge--new">NEW</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Pants</p>
+            <h3 class="product-card__title">Tactical Cargo Pants</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$79.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('cargo-pants')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="product-card" onclick="openProductModal('graphic-tee')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=533&fit=crop" alt="Cyber Graphic T-Shirt">
+            <span class="product-card__badge product-card__badge--new">NEW</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">T-Shirts</p>
+            <h3 class="product-card__title">Cyber Graphic Tee</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$39.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('graphic-tee')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="product-card" onclick="openProductModal('retro-sneakers')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=533&fit=crop" alt="Retro Wave Sneakers">
+            <span class="product-card__badge product-card__badge--new">NEW</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Shoes</p>
+            <h3 class="product-card__title">Retro Wave Sneakers</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$129.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--low">Only 2 left in stock</p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('retro-sneakers')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <a href="products.html" class="btn btn--outline">View All New Arrivals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="section">
+    <div class="container">
+      <header class="section__header">
+        <h2 class="section__title">BEST SELLERS</h2>
+        <p class="section__subtitle">Customer favorites. Tried, tested, and loved.</p>
+      </header>
+      
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <article class="product-card" onclick="openProductModal('classic-bomber')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=533&fit=crop" alt="Classic Bomber Jacket">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Jackets</p>
+            <h3 class="product-card__title">Classic Bomber Jacket</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$149.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('classic-bomber')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="product-card" onclick="openProductModal('denim-jacket')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400&h=533&fit=crop" alt="Vintage Denim Jacket">
+            <span class="product-card__badge product-card__badge--sale">SALE</span>
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Jackets</p>
+            <h3 class="product-card__title">Vintage Denim Jacket</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$69.99</span>
+              <span class="product-card__price-original">$99.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('denim-jacket')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="product-card" onclick="openProductModal('slim-jeans')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=533&fit=crop" alt="Slim Fit Jeans">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Pants</p>
+            <h3 class="product-card__title">Slim Fit Jeans</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$59.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--available"></p>
+            <div class="product-card__actions">
+              <button class="btn btn--primary btn--small" onclick="event.stopPropagation(); addToCart('slim-jeans')">Add to Cart</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="product-card" onclick="openProductModal('minimalist-backpack')">
+          <div class="product-card__image">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=533&fit=crop" alt="Minimalist Backpack">
+          </div>
+          <div class="product-card__content">
+            <p class="product-card__category">Accessories</p>
+            <h3 class="product-card__title">Minimalist Backpack</h3>
+            <div class="product-card__price">
+              <span class="product-card__price-current">$89.99</span>
+            </div>
+            <p class="product-card__stock product-card__stock--out">Out of Stock</p>
+            <div class="product-card__actions">
+              <button class="btn btn--secondary btn--small" disabled>Out of Stock</button>
+              <button class="btn btn--ghost btn--icon btn--small" onclick="event.stopPropagation();" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <a href="products.html" class="btn btn--outline">Shop All Best Sellers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="about__stats">
+        <div class="about__stat">
+          <div class="about__stat-value">🚚</div>
+          <div class="about__stat-label">Free Shipping</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-value">🔄</div>
+          <div class="about__stat-label">Easy Returns</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-value">🔒</div>
+          <div class="about__stat-label">Secure Payment</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-value">⚡</div>
+          <div class="about__stat-label">Fast Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
