@@ -4,6 +4,11 @@ A modern e-commerce frontend application built with **Angular 21**. This project
 
 ---
 
+## 📷 Screenshot
+
+<img width="1876" height="870" alt="ecommerce-snip" src="https://github.com/user-attachments/assets/a0be6627-35b9-42f3-a5b2-bcd22bbb3d8a" />
+
+
 ## 🚀 Tech Stack
 
 | Technology | Version |
@@ -73,11 +78,7 @@ ecommerce-frontend/
 
 ---
 
-## 🧪 Running Tests
 
-```bash
-npm test
-```
 
 Tests are powered by [Vitest](https://vitest.dev/).
 
@@ -102,7 +103,6 @@ The build artifacts will be stored in the `dist/` directory.
 | `npm start` | Start the development server |
 | `npm run build` | Build the project for production |
 | `npm run watch` | Build in watch mode (development) |
-| `npm test` | Run unit tests |
 
 ---
 
@@ -115,7 +115,3 @@ The build artifacts will be stored in the `dist/` directory.
 5. Open a pull request
 
 ---
-
-## 📄 License
-
-This project is private and not licensed for public distribution.
