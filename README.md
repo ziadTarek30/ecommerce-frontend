@@ -8,9 +8,13 @@ A modern e-commerce frontend application built with **Angular 21**. This project
 
 <img width="1876" height="870" alt="ecommerce-snip" src="https://github.com/user-attachments/assets/a0be6627-35b9-42f3-a5b2-bcd22bbb3d8a" />
 
+---
+
 ## 🖥️ Backend Repo Link
 
 https://github.com/ziadTarek30/ecommerce-backend
+
+---
 
 ## 🚀 Tech Stack
 
